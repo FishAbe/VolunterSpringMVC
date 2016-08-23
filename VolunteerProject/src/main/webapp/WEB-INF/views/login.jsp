@@ -4,20 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<%-- <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" type="text/css"/> --%>
 <title>Login</title>
 </head>
 <body>
- <form>
- <h2>Login Form</h2>
- <div>
- <div style="margin-bottom: 10px;">
-  User Name:<input type="text">
-  </div>
-  <div style="margin-bottom: 10px;">
-  Password :<input type="password">
-  </div>
-  <input type="submit" value="Login">
-  </div>
- </form>
+<p><font color="red">${errorMessage}</font></p>
+<form action="login" method="post">
+ <fieldset>
+<legend>Login Form</legend>
+<label for="userName">Username</label>
+<input type="text" name="userName" id="uname" value="" /><br />
+<label for="password">Password</label>
+<input type="text" name="password" id="pword" value="" /><br />
+<input type="submit" name="submit" value="submit" class="buttonsubmit" />
+</fieldset>
+</form>
 </body>
 </html>

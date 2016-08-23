@@ -6,12 +6,17 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import mum.edu.cs544.service.LoginService;
 
 /**
  * Handles requests for the application home page.
@@ -20,10 +25,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@Autowired
+	private LoginService loginService ;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
-	 */
+	 *//*
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -36,11 +43,21 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
-	}
-	@RequestMapping(value="/login")
+	}*/
+	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String login(){
 		return "login";
 	}
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String authenticateUser(@RequestParam String userName,String password,ModelMap model){
+		if(!loginService.authenticateUser(userName, password)){
+			model.put("errorMessage", "Invalid User Name");
+			return "login";
+		}
+		model.put("name", userName);
+		return "redirect:projects";
+	}
+	
 	
 	
 }
