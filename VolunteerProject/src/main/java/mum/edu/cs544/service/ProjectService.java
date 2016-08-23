@@ -10,21 +10,20 @@ import mum.edu.cs544.Models.Task;
 
 @Service
 public class ProjectService {
-	
+	List<Project> projects = new ArrayList<Project>();
 	public void addProject(Project project){
-		
+		projects.add(project);
 	}
 	
 	List<Task> getTasks(int projectId){
 		return new ArrayList<Task>();
 	}
 	public List<Project> getAllProjects(){
-		List<Project> projects = new ArrayList<Project>();
+		
 		Project project1 = new Project();
 		project1.setProjectName("ProjectName1");
 		project1.setDescription("project description1");
 		project1.setProjectLocation("Fairfield IOWA,USA1");
-		
 		Project project2 = new Project();
 		project2.setProjectName("ProjectName2");
 		project2.setDescription("project description2");

@@ -9,7 +9,12 @@
 </head>
 <body>
 <h1>List of Projects</h1>
-<table>
+<table border="1">
+<thead>
+<th>Project Name</th>
+<th>Project Description</th>
+<th>Project Location</th>
+</thead>
 	<c:forEach var="project" items="${projects}">
 	<tr>
 		<td>${project.projectName}</td>
