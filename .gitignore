@@ -14,3 +14,9 @@ hs_err_pid*
 .classpath
 .project
 .settings/
+VolunteerProject/.classpath
+VolunteerProject/.project
+VolunteerProject/.settings/org.eclipse.jdt.core.prefs
+VolunteerProject/.settings/
+VolunteerProject/.springBeans
+
