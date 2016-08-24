@@ -7,33 +7,35 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-//@Entity
+import javax.persistence.*;
+
+@Entity
 public class Project {
 	
-	//@Id @GeneratedValue
+	@Id @GeneratedValue
 	private int id;
 	
 	private String projectName;
 	
 	private String description;
 	
-	//@Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
 	private Date startDate;
 	
-	//@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	
 	private String projectLocation;
 	
-	//@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)
 	private  Status status;
 	
-	//@OneToMany(mappedBy ="project")
+	@OneToMany(mappedBy ="project")
 	private List<Task> tasks = new ArrayList<Task>();;
 	
-	/*@OneToOne
+	@OneToOne
 	@JoinColumn(name="admin_id")
-	private Admin createdBy;*/
+	private Admin createdBy;
 	private static DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT,
 			Locale.US);
 	public Project(){

@@ -9,18 +9,20 @@
 </head>
 <body>
 <h1>List of Projects</h1>
-<table border="1">
+<a href="projects/add" style="float:center"><button>Add Project</button></a>
+<table   style="width: 700px;bgcolor:gray">
 <thead>
 <th>Project Name</th>
 <th>Project Description</th>
 <th>Project Location</th>
+<th>Action</th>
 </thead>
 	<c:forEach var="project" items="${projects}">
 	<tr>
-		<td>${project.projectName}</td>
+		<td style="bgcolor: lightBlue"><a href="projects/${project.id}">${project.projectName}</a></td>
 		<td>${project.description}</td>
 		<td>${project.projectLocation}</td>
-		<%-- <td><a href="cars/${car.id}">edit</a></td> --%>
+		 <td><a href="projects/${project.id}"><button>Edit</button> </a></td>
 	</tr>
 	</c:forEach>
 	</table>

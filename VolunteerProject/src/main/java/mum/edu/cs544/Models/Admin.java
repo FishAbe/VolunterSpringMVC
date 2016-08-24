@@ -1,17 +1,18 @@
 package mum.edu.cs544.Models;
 
+import javax.persistence.*;
 
-//@Entity
+@Entity
 public class Admin  {
     
-	//@Id @GeneratedValue
+	@Id @GeneratedValue
 	private int id;
 	
 	private String firstName;
 	
 	private String lastName;
 	
-	//@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)
 	private UserRole userRole;
     
 	public Admin(){

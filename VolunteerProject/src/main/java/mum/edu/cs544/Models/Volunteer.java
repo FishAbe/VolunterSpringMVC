@@ -3,24 +3,26 @@ package mum.edu.cs544.Models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.*;
 
-//@Entity
+
+@Entity
 public class Volunteer {
 
-	//@Id
-	//@GeneratedValue
+	@Id
+	@GeneratedValue
 	private int id;
 
 	private String firstName;
 
 	private String lastName;
 
-	//@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)
 	private UserRole userRole;
 	
 	private String description;
 
-	//@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private Task task;
     
 	public Volunteer(){

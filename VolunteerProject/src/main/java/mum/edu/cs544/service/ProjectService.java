@@ -3,16 +3,24 @@ package mum.edu.cs544.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
+import mum.edu.cs544.DAO.ProjectDAO;
 import mum.edu.cs544.Models.Project;
 import mum.edu.cs544.Models.Task;
 
 @Service
 public class ProjectService {
+	@Resource
+	private ProjectDAO projectDao;
+	
+	
 	List<Project> projects = new ArrayList<Project>();
 	public void addProject(Project project){
-		projects.add(project);
+		projectDao.save(project);
+		//projects.add(project);
 	}
 	
 	List<Task> getTasks(int projectId){
@@ -32,5 +40,7 @@ public class ProjectService {
 		projects.add(project2);
 		return projects;
 	}
+	
+	
 
 }

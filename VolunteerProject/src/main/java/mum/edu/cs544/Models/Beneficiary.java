@@ -1,16 +1,18 @@
 package mum.edu.cs544.Models;
 
-//@Entity
+import javax.persistence.*;
+
+@Entity
 public class Beneficiary {
 	
-	//@Id @GeneratedValue
+	@Id @GeneratedValue
 	private int id;
 	
 	private String beneficiaryName;
 	
 	private String description;
 	
-	//@ManyToOne
+	@ManyToOne
 	private Project project;
     
 	public Beneficiary (){

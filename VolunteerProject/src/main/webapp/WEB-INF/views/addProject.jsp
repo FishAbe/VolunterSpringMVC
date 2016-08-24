@@ -7,11 +7,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="projects/add" method="Post">
-Project Name :<input type="text" name="projectName">
-Project Description : <input type="text" name="description">
-Project Location :<input type="text" name="projectLocation">
+<form style="margin-left: auto;margin-right: auto; width: 80%" action="projects/add" method="Post">
+<fieldset>
+<div>
+<div style="margin-bottom: 20px;">
+Project Name :<input  type="text" name="projectName">
+</div>
+<div style="margin-bottom: 20px">
+Project Description : <input  type="text" name="description">
+</div>
+<div style="margin-bottom: 20px">
+Project Location :<input  type="text" name="projectLocation">
+</div>
 <input type="submit" value="Add">
+</div>
+</fieldset>
+
+
+
 </form>
 </body>
 </html>

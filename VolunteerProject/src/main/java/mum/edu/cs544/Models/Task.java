@@ -7,29 +7,31 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.persistence.*;
 
-//@Entity
+
+@Entity
 public class Task {
 	
-	//@Id @GeneratedValue
+	@Id @GeneratedValue
 	private int id;
 	
 	private String taskName;
 	
-	//@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date startDate;
 	
-	//@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	
 	private String neededResources;
 	
-	//@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)
 	private Status status;
 	
-	//@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Project project;
-	//@OneToOne(mappedBy="task")
+	@OneToOne(mappedBy="task")
 	private Volunteer volunter;
 	
 	private static DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT,

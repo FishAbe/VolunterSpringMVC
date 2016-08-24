@@ -16,23 +16,24 @@ import mum.edu.cs544.service.ProjectService;
 @Controller
 public class ProjectController {
 	
-	@Autowired
-	ProjectService projectService;
+	
+	ProjectService projectService = null;
 	
 	@RequestMapping(value="/projects")
 	public String projects(Model model){
 		model.addAttribute("projects", projectService.getAllProjects());
 		return "projects";
 	}
-	@RequestMapping(value="/add",method = RequestMethod.GET)
+	@RequestMapping(value="projects/add",method = RequestMethod.GET)
 	public String add(Model model){
 		model.addAttribute("project", new Project());
 		return "addProject";
 		
 	}
-	@RequestMapping(value="/add",method = RequestMethod.POST)
+	@RequestMapping(value="projects/add",method = RequestMethod.POST)
 	public String add(Project project,Model model){
 		projectService.addProject(project);
+		System.out.println(project.getDescription());
 		return "redirect:projects";
 		
 	}

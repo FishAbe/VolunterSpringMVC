@@ -54,7 +54,7 @@ public class HomeController {
 			model.put("errorMessage", "Invalid User Name");
 			return "login";
 		}
-		model.put("name", userName);
+		/*model.put("name", userName);*/
 		return "redirect:projects";
 	}
 	
